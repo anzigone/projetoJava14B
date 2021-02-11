@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/estilo.css">
 
     <script src="/js/dashmenu.js"></script>
+    <script src="/js/dash.js"></script>
 
     <title>Enventos Período</title>
 
@@ -35,6 +36,22 @@
             <div id="btn" class="col-4 text-right">
                 <button class="btn btn-secondary" onclick="logout()">Logout</button>
             </div>
+            <div>
+                <label>Data Inicio</label><br>
+                <input type="date" id="dtinicio"><br>
+                <label>Data Final</label><br>
+                <input type="date" id="dtfinal"><br><br>
+                <button class="btn btn-secondary" onclick="gerarRelatorioEventos()">Gerar Relatório</button>
+                <br>
+                <div id="relatorio">
+
+
+                </div>
+
+
+
+            </div>
+        
         </div>
     
 </body>
