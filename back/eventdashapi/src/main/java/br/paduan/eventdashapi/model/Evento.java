@@ -23,13 +23,13 @@ public class Evento {
     @Column(name = "data_evt")
     private LocalDate dataevt;
 
-/*     @OneToOne
+    @OneToOne
     @JoinColumn(name = "id_alarme")
     private Alarme alarme;
 
     @OneToOne 
     @JoinColumn(name = "id_equip")
-    private Equipamento equipamento; */
+    private Equipamento equipamento;
 
     public int getId() {
         return id;
@@ -47,7 +47,7 @@ public class Evento {
         this.dataevt = data_evt;
     }
 
- /*    public Alarme getAlarme() {
+    public Alarme getAlarme() {
         return alarme;
     }
 
@@ -61,6 +61,6 @@ public class Evento {
 
     public void setEquipamento(Equipamento equipamento) {
         this.equipamento = equipamento;
-    } */
+    }
 
 }

@@ -1,6 +1,5 @@
 package br.paduan.eventdashapi.controller;
 
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,32 +10,33 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.paduan.eventdashapi.model.Alarme;
-import br.paduan.eventdashapi.repository.AlarmeRepo;
+import br.paduan.eventdashapi.model.Equipamento;
+import br.paduan.eventdashapi.repository.EquipamentoRepo;
 
 @RestController // Indica que a classe irá responder protocolos HTTP (GET/POST)
 @CrossOrigin("*")
-@RequestMapping("/alarme")
-public class AlarmeController {
+@RequestMapping("/equipamento")
+public class EquipamentoController {
 
 	@Autowired // indica que o gerenciamento do atributo sera feito pelo Spring
-	private AlarmeRepo repo;
+	private EquipamentoRepo repo;
 	
 	@GetMapping("/all")
-	public ResponseEntity<List<Alarme>> getAll(){
-		List<Alarme> lista = (List<Alarme>) repo.findAll();
+	public ResponseEntity<List<Equipamento>> getAll(){
+		List<Equipamento> lista = (List<Equipamento>) repo.findAll();
 		if(lista.size()==0) {
 			return ResponseEntity.status(404).build();
 		}
 		return ResponseEntity.ok(lista);
 	}
-
+	
 	@GetMapping("/id/{id}")
-	public ResponseEntity<Alarme> pesquisarAlarme(@PathVariable int id) {
-		Alarme objeto = repo.findById(id).orElse(null);
+	public ResponseEntity<Equipamento> pesquisarEquipamento(@PathVariable int id) {
+		Equipamento objeto = repo.findById(id).orElse(null);
 		if (objeto == null) {
 			return ResponseEntity.status(404).build();
 		}
 		return ResponseEntity.ok(objeto);
-	}    
+	}
+	
 }
