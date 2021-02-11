@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/css/estilo.css">
+
+    <script src="/js/dashmenu.js"></script>
+
+    <title>EventDash</title>
+
+
+</head>
+
+<body onload="validaLogin()">
+    <div class="container h-100">
+        <div class="row justify-content-between">
+            <div id="foto" class="col-8">
+                <div class="media">
+                    <div id="imgUser"></div>
+                    <div class="media-body">
+                        <h5 class="mt-0">
+                            <br>
+                            <p id="user"></p>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+            <div id="btn" class="col-4 text-right">
+                <button class="btn btn-secondary" onclick="logout()">Logout</button>
+            </div>
+        </div>
+        
+        <div class="row h-50 justify-content-center" >
+            <div class="col-8 h-50 my-auto" id="menu">
+                <div class="row h-100">
+                    <div class="col my-auto text-center">
+                        <p><a href="listalarmes.html">Listar alarmes</a></p>
+                        <p><a href="eventosperido.html">Relatório de eventos por período</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

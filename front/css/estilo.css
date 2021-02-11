@@ -1,0 +1,28 @@
+body,html{
+    height: 100%;
+    color: darkorange;
+}
+
+.form-control{
+    margin-bottom: 15px;
+}
+
+img{
+    height: 80px;
+    width: 70px;
+}
+
+#msgError{
+    color: red;
+    margin-bottom: 10px;
+}
+
+.row{
+    padding-top: 1em;
+}
+
+#menu{
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+}
