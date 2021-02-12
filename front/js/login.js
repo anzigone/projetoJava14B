@@ -23,6 +23,12 @@ function autenticar(event) {
 
 }
 
+window.onload = function() {
+    document.getElementById("txtUser").focus();
+  };
+
+
+
 function tratarResposta(retorno){ //fazer o tratamento de login e passagem de tela
     //console.log(retorno);
     if(retorno.status == 200){
