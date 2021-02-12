@@ -33,8 +33,41 @@ function tratarRetornoTodos(dados){
 }
 
 function exibirDados(lista) {
-    console.log(lista);
-    let tabela = "<table class='tblrelatorio'>";
+    //console.log(JSON.stringify(lista));
+    $(document).ready(function() {
+        $('#tabelaDados').DataTable( {
+            data: lista,
+            "columnDefs": [
+                { "title": "ID", "targets": [0], "visible": true, "witdh": "10%", "name": "id_alarme", orderable: true },
+                { "title": "Nome","targets": [1], "visible": true, "witdh": "40%", "name": "nome", orderable: true },
+                { "title": "Descrição","targets": [2], "visible": true, "witdh": "50%", "name": "descricao", orderable: false }
+            ],
+            columns: [
+                { data: 'id_alarme' },
+                { data: 'nome' },
+                { data: 'descricao' }
+            ],           
+            "order": [[ 1, "desc" ]],
+            "pageLength": 25,
+            "language": {
+                "lengthMenu": "Exibir _MENU_ registros por página",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro encontrado",
+                "infoFiltered": "(filtrado de _MAX_ total de registros)",
+                "sSearch": "Pesquisar",
+                "oPaginate": {
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Último",
+                }
+            }
+
+        } );
+    } );
+
+/*  let tabela = "<table id='tabelaDados'class='tblrelatorio'>";
     tabela += "<tr><td colspan='3'><h6>Relatório dos tipos de alertas</h6></td><tr>";
     tabela += "<tr><th class='tblrelatorioth'>ID Alarme</th>";
     tabela += "<th class='tblrelatorioth'>Nome do Alarme</th>";
@@ -46,10 +79,9 @@ function exibirDados(lista) {
         tabela += `<td class="tblrelatoriotd"> ${lista[i].descricao} </td>`
         tabela += `</tr>`;
     }
-
     tabela += "</table>";
     document.getElementById("relatorio").innerHTML = tabela;
-
+*/
     // <td> ${new Date(res[i].dataevt).toLocaleDateString("pt-BR", {timeZone: 'UTC'})} </td> 
 
 }

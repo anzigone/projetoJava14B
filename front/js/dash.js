@@ -64,8 +64,46 @@ function gerarRelatorioEventos() {
     }       
 }
 
+function preencheEventos(lista) {
+    //console.log(lista);
+    $(document).ready(function() {
+        $('#tabelaDados').DataTable( {
+            data: lista,
+            "columnDefs": [
+                { "title": "Data", "targets": [0], "visible": true, "witdh": "10%", "name": "dataevt", orderable: true },
+                { "title": "Alarme","targets": [1], "visible": true, "witdh": "40%", "name": "alarme.nome", orderable: true },
+                { "title": "Equipamento","targets": [2], "visible": true, "witdh": "50%", "name": "equipamento.hostnome", orderable: true }
+            ],
+            columns: [
+                { data: 'dataevt' },
+                { data: 'alarme.nome' },
+                { data: 'equipamento.hostnome' }
+            ],           
+            "order": [[ 1, "asc" ]],
+            "pageLength": 25,
+            "language": {
+                "lengthMenu": "Exibir _MENU_ registros",
+                "zeroRecords": "Nothing found - sorry",
+                "info": "Mostrando página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro encontrado",
+                "infoFiltered": "(filtrado de _MAX_ total de registros)",
+                "sSearch": "Pesquisar",
+                "oPaginate": {
+                    "sNext": "Próximo",
+                    "sPrevious": "Anterior",
+                    "sFirst": "Primeiro",
+                    "sLast": "Último",
+                }
+            }
+
+        } );
+    } );
+}
+
+/*
 function preencheEventos(res) {
     //console.log(res);
+
     let tabela = "<table class='tblrelatorio'>";
     tabela += "<tr><td colspan='3'><h6>Relatório de Eventos</h6></td><tr>";
     tabela += "<tr><th class='tblrelatorioth'>Data</th>";
@@ -84,3 +122,4 @@ function preencheEventos(res) {
     // <td> ${new Date(res[i].dataevt).toLocaleDateString("pt-BR", {timeZone: 'UTC'})} </td> 
 
 }
+*/

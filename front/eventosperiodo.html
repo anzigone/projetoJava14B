@@ -10,6 +10,9 @@
 
     <!--link rel="stylesheet" href="/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.23/datatables.min.js"></script>
 
     <link rel="stylesheet" href="/css/estilo.css">
 
@@ -60,7 +63,10 @@
             </div>
         </div>
         <div class="row mediaPlus" id="msgErroData"></div>
-        <div class="row mediaPlus" id="relatorio"></div>
+        <div class="row mediaPlus" id="relatorio">
+            <table id='tabelaDados' class="display" width="100%" >
+            </table>
+        </div>
     </div>
 
     
