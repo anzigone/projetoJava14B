@@ -8,6 +8,6 @@ import org.springframework.data.repository.CrudRepository;
 import br.paduan.eventdashapi.model.Evento;
 
 public interface EventoRepo extends CrudRepository<Evento, Integer> {
-    
-    public List<Evento> findByDataevtBetween(LocalDate dataini, LocalDate datafim);
+
+    public List<Evento> findByDataevtBetweenOrderByDataevtAsc(LocalDate dataini, LocalDate datafim);
 }
