@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"-->
 
+    <link rel="stylesheet" href="/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="/css/estilo.css">
 
     <script src="/js/dashmenu.js"></script>
@@ -21,7 +24,13 @@
 <body onload="validaLogin()">
     
     <div class="container h-100">
-        <div class="row justify-content-between">
+        <div class="row voltarRow">
+            <div class="col-12 linkVoltar">
+                <img src="../imagens/voltar4.png" id="imgVoltar" onclick="voltar()" />
+                <label onclick="voltar()">Voltar para o Menu</label>
+            </div>
+        </div>        
+        <div class="row justify-content-between mediaPlus">
             <div id="foto" class="col-8">
                 <div class="media">
                     <div id="imgUser"></div>
@@ -36,23 +45,24 @@
             <div id="btn" class="col-4 text-right">
                 <button class="btn btn-secondary" onclick="logout()">Logout</button>
             </div>
-            <div>
-                <label>Data Inicio</label><br>
-                <input type="date" id="dtinicio"><br>
-                <label>Data Final</label><br>
-                <input type="date" id="dtfinal"><br><br>
-                <button class="btn btn-secondary" onclick="gerarRelatorioEventos()">Gerar Relatório</button>
-                <br>
-                <div id="relatorio">
-
-
-                </div>
-
-
-
-            </div>
-        
         </div>
+        <div class="row mediaPlus">
+            <div class="col">
+                <label>Data Inicio:</label>
+                <input type="date" id="dtinicio">
+                <label>Data Final:</label>
+                <input type="date" id="dtfinal">
+            </div>
+        </div>
+        <div class="row mediaPlus">
+            <div class="col-12">
+                <button class="btn btn-secondary" onclick="gerarRelatorioEventos()">Gerar Relatório</button>
+            </div>
+        </div>
+        <div class="row mediaPlus" id="msgErroData"></div>
+        <div class="row mediaPlus" id="relatorio"></div>
+    </div>
+
     
 </body>
 </html>

@@ -17,13 +17,24 @@ function logout() {
 }
 
 function voltar(){
-
+    window.location = "dashmenu.html";
 }
 
 function obterDatas(){
     let dataini = document.getElementById("dtinicio").value;
     let datafim = document.getElementById("dtfinal").value;
-    //alert(dataini);
+
+    if((dataini == "") || (datafim == "")){
+        document.getElementById("msgErroData").innerHTML = "ATENÇÃO!<br>Data de início e a data final são campos obrigatórios!";
+        return false;
+    }
+    if(dataini > datafim){
+        document.getElementById("msgErroData").innerHTML = "ATENÇÃO!<br>Data de início não pode ser maior que a data final!";
+        return false;
+    }
+    else{
+        document.getElementById("msgErroData").innerHTML = "";
+    }
 
     let dataMsg = {
         dt1: dataini,
@@ -43,23 +54,28 @@ function obterDatas(){
 
 function gerarRelatorioEventos() {
     
-    let msg = obterDatas(); 
+    let msg = obterDatas();
 
-    fetch("http://localhost:8080/evento/data", msg)
-        .then(res => res.json())
-        .then(res => preencheEventos(res));
-        
+    if(msg)
+    {
+        fetch("http://localhost:8080/evento/data", msg)
+            .then(res => res.json())
+            .then(res => preencheEventos(res));
+    }       
 }
 
 function preencheEventos(res) {
-    console.log(res);
+    //console.log(res);
     let tabela = "<table class='tblrelatorio'>";
-    tabela += "<tr class='tblreltr'><th>Data</th><th>Alarme</th><th>Equipamento</th></tr>"
+    tabela += "<tr><td colspan='3'><h6>Relatório de Eventos</h6></td><tr>";
+    tabela += "<tr><th class='tblrelatorioth'>Data</th>";
+    tabela += "<th class='tblrelatorioth'>Alarme</th>";
+    tabela += "<th class='tblrelatorioth'>Equipamento</th></tr>"
     for (i = 0; i < res.length; i++)
     {
-        tabela += `<tr class='tblreltr'><td class='tblreltr'> ${new Date(res[i].dataevt).toLocaleDateString("pt-BR", {timeZone: 'UTC'})} </td>`;
-        tabela += `<td class='tblreltr'> ${res[i].alarme.nome} </td>`;
-        tabela += `<td class='tblreltr'> ${res[i].equipamento.hostnome} </td></tr>`;
+        tabela += `<tr><td class='tblrelatoriotd' align='center'> ${new Date(res[i].dataevt).toLocaleDateString("pt-BR", {timeZone: 'UTC'})} </td>`;
+        tabela += `<td class='tblrelatoriotd'> ${res[i].alarme.nome} </td>`;
+        tabela += `<td class='tblrelatoriotd'> ${res[i].equipamento.hostnome} </td></tr>`;
     }
     
     tabela += "</table>";

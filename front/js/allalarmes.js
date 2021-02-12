@@ -16,8 +16,8 @@ function logout() {
     window.location = "index.html";
 }
 
-function voltar() {
-
+function voltar(){
+    window.location = "dashmenu.html";
 }
 
 function listarTodos(){
@@ -35,11 +35,16 @@ function tratarRetornoTodos(dados){
 function exibirDados(lista) {
     console.log(lista);
     let tabela = "<table class='tblrelatorio'>";
-    tabela += "<tr class='tblreltr'><th>ID Alarme</th><th>Nome do Alarme</th><th>Descrição do Alarme</th></tr>"
+    tabela += "<tr><td colspan='3'><h6>Relatório dos tipos de alertas</h6></td><tr>";
+    tabela += "<tr><th class='tblrelatorioth'>ID Alarme</th>";
+    tabela += "<th class='tblrelatorioth'>Nome do Alarme</th>";
+    tabela += "<th class='tblrelatorioth'>Descrição do Alarme</th></tr>"
     for (i = 0; i < lista.length; i++) {
-        tabela += `<tr class='tblreltr'><td class='tblreltr'> ${lista[i].id_alarme} </td>`;
-        tabela += `<td class='tblreltr'> ${lista[i].nome} </td>`;
-        tabela += `<td class='tblreltr'> ${lista[i].descricao} </td></tr>`;
+        tabela += `<tr>`;
+        tabela += `<td class="tblrelatoriotd" align="center"> ${lista[i].id_alarme} </td>`;
+        tabela += `<td class="tblrelatoriotd"> ${lista[i].nome} </td>`;
+        tabela += `<td class="tblrelatoriotd"> ${lista[i].descricao} </td>`
+        tabela += `</tr>`;
     }
 
     tabela += "</table>";
